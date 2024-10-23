@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view_event"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@color/white"
+    android:layout_gravity="center"
+    android:layout_marginStart="6dp"
+    android:layout_marginEnd="6dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    card_view:cardCornerRadius = "14dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="350dp"
+        android:layout_height="250dp">
+
+        <ImageView
+            android:id="@+id/img_event"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/event_image"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:background="@drawable/background_gradient"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintHorizontal_bias="1.0"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="@+id/img_event"
+            card_view:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/description_event"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/background_gradient"
+            android:text="@string/description"
+            android:textColor="@color/white"
+            android:paddingHorizontal="8dp"
+            card_view:layout_constraintBottom_toBottomOf="@+id/img_event"
+            android:maxLines="2"
+            android:paddingBottom="8dp"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
