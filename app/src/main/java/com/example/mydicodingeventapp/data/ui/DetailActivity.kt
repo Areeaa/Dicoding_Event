@@ -21,12 +21,18 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var viewModel: DetailViewModel
     private var isFavourite = false
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this, ViewModelFactory.getInstance(application))[DetailViewModel::class.java]
+
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelFactory.getInstance(application)
+        )[DetailViewModel::class.java]
         val eventId = intent.getStringExtra("EVENT_ID")
 
         // Observe loading dan event detail

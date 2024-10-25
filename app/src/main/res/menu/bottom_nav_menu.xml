@@ -25,7 +25,7 @@
 
     <item
         android:id="@+id/navigation_setting"
-        android:icon="@drawable/favorite_24"
+        android:icon="@drawable/setting"
         android:title="@string/setting"
 
         />

@@ -6,8 +6,8 @@
     <string name="title_activity_base_activiity">BaseActiviity</string>
     <string name="title_activity_base">BaseActivity</string>
     <string name="title_activity_home">Dicoding Event</string>
-    <string name="title_activuty_upcoming">Upcoming Event</string>
-    <string name="title_activity_finished">Finished Event</string>
+    <string name="title_activuty_upcoming">Upcoming</string>
+    <string name="title_activity_finished">Finished</string>
     <string name="open_in_browser">Open To Browser</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="event_title">Event Title</string>
@@ -25,5 +25,13 @@
     <string name="favorite">Favorite</string>
     <string name="setting">Setting</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode_title">Dark Mode</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="upcoming_desc">Berikut event yang akan dilaksanakan mendatang</string>
+    <string name="finished_desc">Berikut event yang sudah selesai</string>
+    <string name="settings_title">Settings</string>
+    <string name="favorite_title">Favorit Event</string>
+    <string name="dicoding_title">Dicoding Event</string>
+    <string name="dicoding_desc">Temukan Event Menarik di Dicoding</string>
 
 </resources>
