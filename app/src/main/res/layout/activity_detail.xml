@@ -39,7 +39,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="26dp"
                 android:text="@string/event_title"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -159,6 +159,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5"
                 tools:visibility="visible" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                app:fabSize="normal"
+                app:layout_constraintBottom_toTopOf="@+id/tv_name_detail_event"
+                app:layout_constraintEnd_toEndOf="@+id/ivPicture"
+                app:srcCompat="@drawable/favourite_border_24" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

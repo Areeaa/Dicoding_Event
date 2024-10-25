@@ -16,4 +16,18 @@
         android:icon="@drawable/calendar_check"
         android:title="@string/title_activity_finished" />
 
+    <item
+        android:id="@+id/navigation_favorite"
+        android:icon="@drawable/favorite_24"
+        android:title="@string/favorite"
+
+        />
+
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/favorite_24"
+        android:title="@string/setting"
+
+        />
+
 </menu>

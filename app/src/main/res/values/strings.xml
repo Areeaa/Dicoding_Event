@@ -22,5 +22,8 @@
     <string name="quota_available">Quota Available</string>
     <string name="waktu_pelaksanaan">Waktu Pelaksanaan:</string>
     <string name="quota_tersedia">Quota Tersedia:</string>
+    <string name="favorite">Favorite</string>
+    <string name="setting">Setting</string>
+    <string name="dark_mode">Dark Mode</string>
 
 </resources>

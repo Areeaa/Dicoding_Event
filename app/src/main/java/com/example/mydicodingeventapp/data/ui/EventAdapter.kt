@@ -36,7 +36,7 @@ class EventAdapter : ListAdapter<ListEventsItem, EventAdapter.MyViewHolder> (DIF
     class MyViewHolder (private val binding: EventListRowBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(event: ListEventsItem){
             binding.descriptionEvent.text = event.name
-            Glide.with(binding.imgEvent)
+            Glide.with(binding.imgEvent.context)
                 .load(event.mediaCover)
                 .into(binding.imgEvent)
 

@@ -24,5 +24,17 @@
         android:label="@string/title_activity_finished"
         tools:layout="@layout/fragment_finished" />
 
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.example.mydicodingeventapp.data.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.example.mydicodingeventapp.data.ui.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+
 
 </navigation>
