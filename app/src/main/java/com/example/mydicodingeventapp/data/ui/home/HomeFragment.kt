@@ -62,16 +62,18 @@ class HomeFragment : Fragment() {
 
         // Observe upcoming events
         eventViewModel.finishedEvents.observe(viewLifecycleOwner) { events ->
-            progressBar.visibility = View.GONE
+            isFinishedEventLoaded = true
             val limitedEvent = events.take(5)
             adapter1.submitList(limitedEvent)
+            checkDataLoaded()
         }
 
         // Observe finished events
         eventViewModel.upcomingEvents.observe(viewLifecycleOwner) { events ->
-            progressBar.visibility = View.GONE
+            isUpcomingEventLoaded = true
             val limitedEvent = events.take(5)
             adapter2.submitList(limitedEvent)
+            checkDataLoaded()
         }
 
         // Observe tema
