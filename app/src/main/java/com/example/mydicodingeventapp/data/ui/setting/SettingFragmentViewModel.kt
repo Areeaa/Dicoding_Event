@@ -16,5 +16,18 @@ class SettingFragmentViewModel(private val pref: SettingPreferences): ViewModel(
         viewModelScope.launch {
             pref.saveThemeSetting(isDarkModeActive)
         }
+
 }
+    fun getNotificationSettings(): LiveData<Boolean> {
+        return pref.getNotificationSetting().asLiveData()
+    }
+
+    fun saveNotificationSetting(isNotificationEnabled: Boolean) {
+        viewModelScope.launch {
+            pref.saveNotificationSetting(isNotificationEnabled)
+        }
+
+
+    }
+
 }

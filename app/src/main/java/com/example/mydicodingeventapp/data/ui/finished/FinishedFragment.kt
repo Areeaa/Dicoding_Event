@@ -34,57 +34,58 @@ class FinishedFragment : Fragment() {
         _binding = FragmentFinishedBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        with(binding){
-            searchView.setupWithSearchBar(searchBar)
-            searchView
-                .editText
-                .setOnEditorActionListener{ _, _, _ ->
-                    val query = searchView.text.toString()
-                    searchBar.setText(query)
-                    searchView.hide()
 
-                    eventViewModel.searchFinishedEvents(query)
-                    false
-                }
+        recyclerView = binding.rvEvent
+        progressBar = binding.progressBar
+        adapter = EventAdapter()
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
+        // Observe events
+        eventViewModel.finishedEvents.observe(viewLifecycleOwner) { events ->
+            progressBar.visibility = View.GONE // sembunyikan progress bar
+            adapter.submitList(events)
         }
 
-        eventViewModel.events.observe(viewLifecycleOwner) { events ->
+        // Setup search
+        with(binding) {
+            searchView.setupWithSearchBar(searchBar)
+            searchView.editText.setOnEditorActionListener { _, _, _ ->
+                val query = searchView.text.toString()
+                searchBar.setText(query)
+                searchView.hide()
 
-            if (events.isEmpty()) {
-                // kosongkan tampilan ketika item yang dicari tidak ditemukan
-                adapter.submitList(emptyList())
-                binding.noEventsTextView.visibility = View.VISIBLE
-            } else {
-                adapter.submitList(events)
-                //sembunyikan textview kosong yang ditampilkan hanya ketika item yang ditampilkan tidak tersedia
-                binding.noEventsTextView.visibility = View.GONE
+                // tampilkan progressbar ketika pencarian
+                progressBar.visibility = View.VISIBLE
+                adapter.submitList(emptyList()) // tampilkan emptylist ketika pencarian
+                eventViewModel.searchFinishedEvents(query)
+
+                false
             }
         }
 
+        // Observe search results
+        eventViewModel.events.observe(viewLifecycleOwner) { events ->
+
+            if (events.isEmpty()) {
+                binding.noEventsTextView.visibility = View.VISIBLE // menampilkan pesan
+            } else {
+                binding.noEventsTextView.visibility = View.GONE // sembunyikan pesan
+            }
+            adapter.submitList(events)
+            progressBar.visibility = View.GONE // sembunyikan progressbar ketika hasil pencarian muncul
+        }
+
+        // Observe toast messages
         eventViewModel.toastMessage.observe(viewLifecycleOwner) { message ->
             message?.let {
                 Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
             }
         }
 
-
-        // Menghubungkan recyclerView dan progressBar dari binding
-        recyclerView = binding.rvEvent
-        progressBar = binding.progressBar
-
-        adapter = EventAdapter()
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-
-        eventViewModel.finishedEvents.observe(viewLifecycleOwner) { events ->
-            progressBar.visibility = View.GONE
-
-            adapter.submitList(events)
-        }
-
+        // panggil api untuk menampilkan event
         progressBar.visibility = View.VISIBLE
-        eventViewModel.finishedEvent() // ambil logic api dari viewmodel
+        eventViewModel.finishedEvent()
 
         return root
     }
@@ -93,7 +94,6 @@ class FinishedFragment : Fragment() {
         super.onResume()
         eventViewModel.resetToastMessage()
         binding.noEventsTextView.visibility = View.GONE
-
     }
 
     override fun onDestroyView() {
@@ -101,3 +101,4 @@ class FinishedFragment : Fragment() {
         _binding = null
     }
 }
+

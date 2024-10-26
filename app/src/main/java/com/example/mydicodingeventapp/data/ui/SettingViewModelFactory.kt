@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider.NewInstanceFactory
 import com.example.mydicodingeventapp.data.ui.setting.SettingFragmentViewModel
 
 
-class DarkViewModelFactory(private val pref: SettingPreferences) : NewInstanceFactory() {
+class SettingViewModelFactory(private val pref: SettingPreferences) : NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

@@ -33,5 +33,7 @@
     <string name="favorite_title">Favorit Event</string>
     <string name="dicoding_title">Dicoding Event</string>
     <string name="dicoding_desc">Temukan Event Menarik di Dicoding</string>
+    <string name="notification_title">Notification Permission</string>
+    <string name="enable_notification">Enable Notification</string>
 
 </resources>

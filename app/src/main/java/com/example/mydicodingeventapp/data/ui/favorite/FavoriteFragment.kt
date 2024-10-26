@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.mydicodingeventapp.data.response.ListEventsItem
 import com.example.mydicodingeventapp.data.ui.EventAdapter
 import com.example.mydicodingeventapp.data.ui.ViewModelFactory
