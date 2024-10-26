@@ -58,7 +58,7 @@ class UpcomingFragment : Fragment() {
                 // tampilkan progressbar ketika pencarian
                 progressBar.visibility = View.VISIBLE
                 adapter.submitList(emptyList()) // tampilkan emptylist ketika pencarian
-                eventViewModel.searchFinishedEvents(query)
+                eventViewModel.searchUpcomingEvents(query)
 
                 false
             }
