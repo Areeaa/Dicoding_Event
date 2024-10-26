@@ -61,23 +61,17 @@ class HomeFragment : Fragment() {
         darkModeViewModel = ViewModelProvider(this, SettingViewModelFactory(pref))[SettingFragmentViewModel::class.java]
 
         // Observe upcoming events
-        eventViewModel.upcomingEvents.observe(viewLifecycleOwner) { events ->
-            if (events.isNotEmpty()) {
-                isUpcomingEventLoaded = true
-                val limitedEvent = events.take(5)
-                adapter1.submitList(limitedEvent)
-                checkDataLoaded()
-            }
+        eventViewModel.finishedEvents.observe(viewLifecycleOwner) { events ->
+            progressBar.visibility = View.GONE
+            val limitedEvent = events.take(5)
+            adapter1.submitList(limitedEvent)
         }
 
         // Observe finished events
-        eventViewModel.finishedEvents.observe(viewLifecycleOwner) { events ->
-            if (events.isNotEmpty()) {
-                isFinishedEventLoaded = true
-                val limitedEvent = events.take(5)
-                adapter2.submitList(limitedEvent)
-                checkDataLoaded()
-            }
+        eventViewModel.upcomingEvents.observe(viewLifecycleOwner) { events ->
+            progressBar.visibility = View.GONE
+            val limitedEvent = events.take(5)
+            adapter2.submitList(limitedEvent)
         }
 
         // Observe tema
