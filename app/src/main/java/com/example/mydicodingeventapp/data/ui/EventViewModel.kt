@@ -89,7 +89,7 @@ class EventViewModel : ViewModel() {
                     if (response.isSuccessful) {
                         response.body()?.let { eventResponse ->
                             if (eventResponse.listEvents.isEmpty()) {
-                                _toastMessage.postValue("Item tidak ditemukan")
+                                _toastMessage.postValue("Event tidak ditemukan")
                             }
                             _events.postValue(eventResponse.listEvents)
                         } ?: run {
@@ -121,7 +121,7 @@ class EventViewModel : ViewModel() {
                     if (response.isSuccessful) {
                         response.body()?.let { eventResponse ->
                             if (eventResponse.listEvents.isEmpty()) {
-                                _toastMessage.postValue("Item tidak ditemukan")
+                                _toastMessage.postValue("Event tidak ditemukan")
                             }
                             _events.postValue(eventResponse.listEvents)
                         } ?: run {
