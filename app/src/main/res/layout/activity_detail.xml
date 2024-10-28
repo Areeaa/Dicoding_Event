@@ -168,7 +168,8 @@
                 app:fabSize="normal"
                 app:layout_constraintBottom_toTopOf="@+id/tv_name_detail_event"
                 app:layout_constraintEnd_toEndOf="@+id/ivPicture"
-                app:srcCompat="@drawable/favourite_border_24" />
+                app:srcCompat="@drawable/favourite_border_24"
+                android:contentDescription="@string/fab" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
